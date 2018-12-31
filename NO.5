@@ -1,0 +1,17 @@
+//Modify the temperature conversion program to print the table in reverse order, that is, from 300 degrees to 0. 
+#include<stdio.h>
+
+
+int main()
+{
+    printf("tempertarure range fro 300 to 0 degree celcius in fahrenheit \n");
+    int i,j;
+     for(i=300;i>=0;i--)
+   {
+       j=(i*9/5)+32;
+       printf("\n\ntemperature  %d degree celcius in fahreinheit is %d",i,j);
+
+   }
+
+    return 0;
+}
