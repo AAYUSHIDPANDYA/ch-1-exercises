@@ -1,11 +1,21 @@
 //function Celsius_to_Fahrenheit and print ‘Celsius to Fahrenheit’ table for user provided range of Temperature (in Celsius).
+ #include<stdio.h>
   int celsius2fahrenheit(int a,int b)
   {int i,j;
-     for(i=a;i<=b;i++)
-   {
-       j=(i*9/5)+32;
-       printf("\n\ntemperature  %d degree celcius in fahreinheit is %d",i,j);
+       for(i=a;i<=b;i++)
+         {
+           j=(i*9/5)+32;
+           printf("\n\ntemperature  %d degree celcius in fahreinheit is %d",i,j);
 
-   }
+         }
 
   }
+
+int main()
+{    int t1,t2;
+        printf("enter tempertarure range\n");
+        scanf("%d%d",&t1,&t2);
+        celsius2fahrenheit(t1,t2);
+
+    return 0;
+}
