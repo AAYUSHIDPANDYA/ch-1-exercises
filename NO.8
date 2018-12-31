@@ -1,0 +1,42 @@
+//program to count blanks, tabs, and newlines
+//HERE WE HAVE TO ENTER INPUT AND THEN FOR EOF ,PRESS CTRL Z FOR WINDOWS AND CTRL D ON LINUX TO GET OUR OUTPUT.
+include<stdio.h>
+
+int main(void)
+{
+  int blanks, tabs, newlines;
+  int c;
+  int d = 0;
+  int lastchar = 0;
+
+  blanks = 0;
+  tabs = 0;
+  newlines = 0;
+
+  while(d == 0)
+  {
+    c = getchar();
+
+    if(c == ' ')
+      ++blanks;
+
+    if(c == '\t')
+      ++tabs;
+
+    if(c == '\n')
+      ++newlines;
+
+    if(c == EOF)
+    {
+      if(lastchar != '\n')
+      {
+        ++newlines; 
+      }
+      d = 1;
+    }
+    lastchar = c;
+  }
+
+  printf("Blanks: %d\nTabs: %d\nLines: %d\n", blanks, tabs, newlines);
+  return 0;
+}
