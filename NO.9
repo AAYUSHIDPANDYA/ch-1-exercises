@@ -1,0 +1,19 @@
+//program to copy its input to its output, replacing each string of one or more blanks by a single blank. 
+#include <stdio.h>
+
+int main()
+    {
+         int c;
+          
+          while ((c=getchar())!=EOF) //This keeps getting characters and checking if it is End of File
+         {
+              putchar(c);              //OUTPUT PRINTED
+                  if (c == ' ')            //IF CHARACTER IS BLANK ,ENTERS WHILE LOOP
+                 {
+                   while (c == ' ')      
+                   c=getchar();         
+                   putchar(c);         
+
+          }
+     }
+}
