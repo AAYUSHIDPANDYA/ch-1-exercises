@@ -1,0 +1,11 @@
+//function Celsius_to_Fahrenheit and print ‘Celsius to Fahrenheit’ table for user provided range of Temperature (in Celsius).
+  int celsius2fahrenheit(int a,int b)
+  {int i,j;
+     for(i=a;i<=b;i++)
+   {
+       j=(i*9/5)+32;
+       printf("\n\ntemperature  %d degree celcius in fahreinheit is %d",i,j);
+
+   }
+
+  }
