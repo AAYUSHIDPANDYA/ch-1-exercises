@@ -1,0 +1,94 @@
+//a program to remove all comments from a C program.
+
+
+#include <stdio.h>
+
+    int main( )
+    {
+       int c, comment, nested, squote, dquote;
+
+       comment = 0;
+       nested = 0;
+       squote = 0;
+       dquote = 0;
+       while ((c = getchar()) != EOF)
+       {
+       
+          if (c == '\'') 
+          {
+              putchar(c);
+              c = getchar();
+              putchar(c);
+               if (c == '\\')
+               {
+                c = getchar();
+                putchar(c);
+                }
+            
+            c = getchar();
+            putchar(c);
+           }
+
+        if (c == '"') 
+        {
+            if (dquote > 0)
+                dquote--;
+            else
+                dquote++;
+        }
+
+        if (dquote == 0)
+        {
+            if (c == '/')
+            {
+                c = getchar();
+                if (c == '*') 
+                {
+                    comment++;
+                } 
+                else
+                {
+                    putchar('/');
+                    putchar(c);
+                }
+              }
+                else if (comment)
+                {
+               
+                if (comment > 1) {
+                    printf("error: nested comment\n");
+                    exit(1);
+                }
+                if (c == '*')
+                   {
+                    c = getchar();
+                    if (c == '/') {
+                        comment--;
+                    } 
+                    else 
+                    {
+                        putchar('*');
+                        putchar(c);
+                    }
+                }
+            }
+            else 
+               {
+                if (comment > 1) {
+                    printf("error: comment\n");
+                    exit(1);
+                }
+                if (c != '\'')
+                    putchar(c);
+                }
+             } 
+            else
+            {
+            
+            if (c != '\'')
+                putchar(c);
+            }
+    }
+
+    return 0;
+}
