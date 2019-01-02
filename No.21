@@ -1,0 +1,51 @@
+//program entab that replaces strings of blanks with the minimum number of tabs and blanks to achieve the same spacing. 
+//Use the same stops as for detab .
+#define TABSTOP 4
+#define IN  1
+#define OUT 0
+
+       int main( )
+     {
+        int spc, i, c, nspace;
+       int state, ntab;
+
+        state = OUT;
+       nspace = 0;
+       ntab = 0;
+       spc = 0;
+       while ((c = getchar()) != EOF) {
+        if (c == ' ') 
+        {
+            state = IN;
+            nspace++;
+        }
+        else
+        {
+            if (state == IN)
+        {
+                if (nspace >= TABSTOP)
+                   {
+                    ntab = nspace / TABSTOP;
+                    spc = nspace % TABSTOP;
+                    for (i = 0; i < ntab; i++)
+                        putchar('\t');
+                    for (i = 0; i < spc; i++)
+                        putchar(' ');
+                } 
+                else
+                    {
+                    for (i = 0; i < nspace; i++)
+                        putchar(' ');
+                    }
+                  nspace = 0;
+                  putchar(c);
+                 state = OUT;
+                } 
+               else
+               {
+                putchar(c);
+            }
+        }
+    }
+       return 0;
+}
